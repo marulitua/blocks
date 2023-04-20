@@ -151,6 +151,7 @@ def mk_dm(devname, table, readonly, exit_stack):
     cmd = 'dmsetup remove --noudevsync --'.split() + [devname]
     if needs_udev_fallback:
         cmd[3:3] = ['--verifyudev']
+    time.sleep(5)
     exit_stack.callback(lambda: quiet_call(cmd))
 
 
